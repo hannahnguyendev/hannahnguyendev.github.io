@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hannah Nguyen | Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes continuous-rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    
+        .rotating-icon {
+            animation: continuous-rotation 30s linear infinite; /* 5 seconds per rotation, continuous */
+            display: inline-block; /* Ensure proper behavior for rotation */
+        }
+    </style>    
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header>
+        <nav>
+            <a href="index.html">projects</a>
+            <a href="about.html">personal</a>
+            <a href="resume.html">resume</a>
+        </nav>
+    </header>
+    <!-- Name and Tagline -->
+    <div class="name-container">
+        <a href="index.html" class="name-link">
+            <h1 class="name">Hannah Nguyen</h1>
+        </a>
+        <p class="tagline">Engineering Portfolio</p>
+    </div>
+
+    <section id="hero">
+        <div id="scroll-trigger" class="center-icon">
+            <i class="fa-solid fa-gear rotating-icon"></i>
+        </div>
+    </section>
+    
+
+    <!-- Projects Section -->
+    <div class="projects-container">
+
+        <div id="mediaModal" class="media-modal">
+            <span class="close-button" onclick="closeMediaModal()"></span>
+            <div class="modal-content">
+                <!-- Content dynamically populated via JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Project 1 -->
+        <div class="project-row">        
+            <!-- Media Grid -->
+            <div class="media-grid">
+                <!-- Row 1 -->
+                <div class="media-row">
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/robotimage.jpg" alt="ES51 Image" style="height: 15rem;" data-modal>
+                        <figcaption>Final Robot</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/finalcadimage.png" alt="ES51 Image" style="height: 15rem;" data-modal>
+                        <figcaption>3D Model of Final Robot</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/es51image1.jpg" alt="ES51 Image" style="width: 15.625rem; height: 15rem;" data-modal>
+                        <figcaption>Building Drivetrain</figcaption>
+                    </figure>
+                </div>
+                <!-- Row 2 -->
+                <div class="media-row">
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/workingrobot.mov" autoplay muted loop style="width: 17.5rem;" data-modal></video>
+                        <figcaption>Robot in Action</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/workingclaw.mov" autoplay muted loop style="width: 17.5rem;" data-modal></video>
+                        <figcaption>Claw Demo</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <model-viewer src="indexmedia/finalclaw.glb" ar ar-modes="webxr scene-viewer quick-look" 
+                            auto-rotate camera-controls disable-pan disable-zoom tone-mapping="neutral" poster="poster.jpeg" 
+                            shadow-intensity="1" camera-orbit="-1105deg 89.1deg 0.3365m" field-of-view="30deg" 
+                            style="width:9.375rem; height:10rem;" >
+                        </model-viewer>
+                        <figcaption>3D Claw Model</figcaption>
+                    </figure>
+                </div>
+                
+            </div>
+
+            <div class="project-description" style="text-align: left; margin-left: 2rem; margin-right: 2rem;">
+                <h2>Turf Wars Robot:"Fantastic"</h2>
+                <!-- Short Description -->
+                <p class="short-description">
+                    Our team designed and built a compact robot with a gear-train forklift and claw combo, 
+                    all fully 3D CAD-modeled in SolidWorks and created entirely from scratch using the lathe, 
+                    CNC mill, 3D-printer, laser cutter, horizontal and vertical bandsaws, drill press, and a motor 
+                    dissected from an electronic screwdriver.
+                    <br><br>
+                    <span class="expand-icon" onclick="toggleDescription(this)">
+                        <i class="fa-solid fa-hammer" style="font-size: 1.5rem; transition: transform 0.3s ease;"></i>
+                    </span>
+                </p>
+            
+                <!-- Full Description (Initially Hidden) -->
+                <p class="full-description" style="display: none;">
+                    It’s built to grab, lift, handle tricky terrains, stack, and move objects efficiently. 
+                    I modeled the claw arms, motor mount, and silicone molds for the grip in SolidWorks and used the mill, drill-press, lathe, laser-cutter, and 
+                    3D-printer to create everything. Our robot won 2nd place!
+                </p>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br>
+
+        <!-- Project 2 -->
+        <div class="project-row" style="justify-content: flex-end;">
+            <div class="project-description" style="text-align: left; margin-left: 2rem; margin-right: 2rem;">
+                <h2>Dance Dance Glow Grid</h2>
+                <p class="short-description">
+                    The Glow Grid is an interactive game that combines Dance Dance Revolution and Whack-a-Mole, 
+                    designed to test players' reaction times while encouraging movement and fun. 
+                    The project features a wooden frame containing hand-made pressure-sensitive dance tiles connected to LED strips.
+                    <br><br>
+                    <span class="expand-icon" onclick="toggleDescription(this)">
+                        <i class="fa-solid fa-hammer" style="font-size: 2rem; transition: transform 0.3s ease;"></i>
+                    </span>
+                </p>
+                <p class="full-description" style="display: none;">
+                    I co-developed the Arduino code to control the eight LED strips and pressure sensors, implementing
+                     random tile activation, reaction time tracking, and game logic as well as configured 
+                    pull-up resistors for the pressure sensors. I also helped create the frame and tiles.
+
+                </p>
+            </div>
+            <div class="media-grid">
+                <!-- Row 1 -->
+                <div class="media-row">
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/prototype.mov" autoplay muted loop style="width: 17.5rem;" data-modal></video>
+                        <figcaption>First Prototype -></figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/happydebug.mov" autoplay muted loop style="width: 17.5rem;" data-modal></video>
+                        <figcaption>-Implementation/Debugging-</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/finalplay.MOV" autoplay muted loop style="width: 17.5rem;" data-modal></video>
+                        <figcaption>-> Final Gameplay!</figcaption>
+                    </figure>
+                </div>
+                                <!-- Row 2 -->
+                <div class="media-row">
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/es50child.jpg" alt="ES50 Image" style="width: 15rem; height:15rem;" data-modal>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/es50circuit.png" alt="es50 Image" style="width: 15.625rem; height:15rem;" data-modal>
+                    </figure>
+
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/fullarduinocode.png" alt="Code Snippet" style="width: 21.875rem; height:14.6875rem;" data-modal>
+                        <figcaption>Click + zoom in to read!</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br>
+
+        <!-- Project 3 -->
+        <div class="project-row">        
+            <!-- Media Grid -->
+            <div class="media-grid">
+                <!-- Row 1 -->
+                <div class="media-row">
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/treewwires.jpg" alt="tree Image" style="width: 11.25rem; height: 15rem" data-modal>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/treewithoutlights.jpg" alt="tree Image" style="width: 11.25rem; height: 15rem" data-modal>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/mit.jpg" alt="tree Image" style="width: 15rem; height: 15rem" data-modal>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/guyfinal.mp4" autoplay muted loop style="height:15rem" data-modal></video>
+                    </figure>
+                 </div>
+                <!-- Row 2 -->
+                <div class="media-row">
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/soldering.jpg" alt="tree Image" style="width: 10.3125rem; height: 10.3125rem;" data-modal>
+                        <figcaption style="margin-top: 0;">Soldering</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/workingarduino.mov" autoplay muted loop style="width: 18.125rem;" data-modal></video>
+                        <figcaption style="margin-top: 0;">Prototyping/Debugging</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/heart.mov" autoplay muted loop style="width: 18.125rem;" data-modal></video>
+                        <figcaption style="margin-top: 0;">Creating the Tree Heart</figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="project-description" style="text-align: left; margin-right: 2rem; margin-left: 2rem;">
+                <h2>Feed the Trees!</h2>
+                <p class="short-description">
+                    During Conflux Winter Residency, I worked with another fellow to create an immerisve experience 
+                    featuring a parasitic tree! I led the hardware aspect while they led
+                    the VR experience (both of us created the physical tree out of recycled materials).
+                    <br><br>
+                    <span class="expand-icon" onclick="toggleDescription(this)">
+                        <i class="fa-solid fa-hammer" style="font-size: 2rem; transition: transform 0.3s ease;"></i>
+                    </span>
+                </p>
+                <p class="full-description" style="display: none;">
+                    The tree "heart" is a 
+                    capacitive touch device that uses heart sensors and vibration motors to simulate your blood going into the tree.
+                    During the exhibition of the art residency, we were able to talk to numerous people including 
+                    a professor from MIT Media Lab and a curator of an art gallery in Sweden (whom Conflux is now working with 
+                    to create a new exhibit)!
+                </p>
+            </div>
+
+        </div>
+        <br><br><br><br><br>
+        <!-- Project 2 -->
+        <div class="project-row" style="justify-content: flex-end;">
+            <div class="project-description" style="text-align: left; margin-left: 2rem; margin-right: 2rem;">
+                <h2>BlackBox Gallery</h2>
+                <p class="short-description">
+                    BlackBox Gallery is a project I co-founded for my club Conflux (Art Tech). We wanted to create
+                    a showcase room that could be altered however wanted by student artists. It ended up being a 16 x 12 x 10 ft room. 
+                    <br><br>
+                    <span class="expand-icon" onclick="toggleDescription(this)">
+                        <i class="fa-solid fa-hammer" style="font-size: 2rem; transition: transform 0.3s ease;"></i>
+                    </span>
+                </p>
+                <p class="full-description" style="display: none;">
+                    We built everything from scratch, connecting the walls 
+                    with brackets so it could be disconnected and relocated in the future. There are beams at the top for projectors
+                    and we will be showcasing our first artist in spring! 
+                </p>
+            </div>
+            <div class="media-grid">
+                <!-- Row 1 -->
+                <div class="media-row">
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/powerdrill.MOV" autoplay muted loop style="width: 17.5rem;" data-modal></video>
+                        <figcaption>Building Walls (6)</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/movingwood.mov" autoplay muted loop style="width: 17.5rem;" data-modal></video>
+                        <figcaption>LOTS of Moving</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/paitingwalls.mov" autoplay muted loop style="width: 17.5rem;" data-modal></video>
+                        <figcaption>Painting!</figcaption>
+                    </figure>
+                </div>
+                                <!-- Row 2 -->
+                <div class="media-row">
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/paint.jpg" alt="ES50 Image" style="width: 15.625rem; height:15rem;" data-modal>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/woodshop.png" alt="es50 Image" style="width: 15rem; height:15rem;" data-modal>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/blackboxfinal.JPG" alt="Code Snippet" style="width: 21.875rem; height:15rem;" data-modal>
+                   </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script for Scroll Animation -->
+    <script>
+        const projectRows = document.querySelectorAll('.project-row');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show'); // Remove class to reset animation
+                }
+            });
+        }, { threshold: 0.2 });
+
+        projectRows.forEach(row => observer.observe(row));
+
+        function toggleDescription(element) {
+            const fullDescription = element.parentElement.nextElementSibling;
+            const isExpanded = fullDescription.style.display === "block";
+
+            // Toggle visibility of the full description
+            fullDescription.style.display = isExpanded ? "none" : "block";
+
+            // Rotate and change the color of the hammer icon
+            const icon = element.querySelector("i");
+            if (isExpanded) {
+                icon.style.transform = "rotate(0deg)"; // Rotate back to normal
+                icon.style.color = "#8ab7f1"; // Default blue color
+            } else {
+                icon.style.transform = "rotate(45deg)"; // Rotate 90 degrees
+                icon.style.color = "#f1e9d4"; // Highlighted color when rotated
+            }
+        }
+
+        document.querySelector('#scroll-trigger').addEventListener('click', function () {
+            const target = document.querySelector('.projects-container'); // Select the projects container
+
+            // Get the position of the target element
+            const offset = 60; // Adjust offset for desired room at the top
+            const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+
+            // Smoothly scroll to the adjusted position
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth',
+            });
+
+            // Make the gear rotate faster on click
+            const gearIcon = document.querySelector('#scroll-trigger i');
+            gearIcon.style.animationDuration = "1s"; // Increase rotation speed to 1s per rotation
+
+            // Reset rotation speed after scrolling and animation
+            setTimeout(() => {
+                gearIcon.style.animationDuration = "30s"; // Reset back to slow rotation (30s per rotation)
+            }, 1000); // Matches the faster rotation duration
+        });
+
+        // Add click event listeners to all media items
+        document.querySelectorAll('[data-modal]').forEach(item => {
+            item.addEventListener('click', (event) => {
+                openMediaModal(event.target);
+            });
+        });
+
+    function openMediaModal(element) {
+        const modal = document.getElementById('mediaModal');
+        const modalContent = modal.querySelector('.modal-content');
+
+        // Clear any previous content in the modal
+        modalContent.innerHTML = '';
+
+        // Create a clone of the clicked element (image or video)
+        const clone = element.cloneNode(true);
+        clone.style.transform = 'scale(1.8)'; // Scale the content to 1.5 times its original size
+        clone.style.transformOrigin = 'center'; // Ensure scaling is centered
+        clone.style.transition = 'transform 0.3s ease, opacity 0.3s ease'; // Add smooth scaling transition
+        clone.style.objectFit = 'contain'; // Maintain aspect ratio
+        clone.style.opacity = '0'; // Start transparent for fade-in effect
+        clone.removeAttribute('data-modal'); // Remove modal attributes from the clone
+
+        // Add the cloned element to the modal
+        modalContent.appendChild(clone);
+
+        // Trigger the fade-in after adding the element
+        setTimeout(() => {
+            clone.style.opacity = '1'; // Fade-in effect
+        }, 10); // Short delay to ensure the transition is triggered
+
+        // Disable scrolling and display the modal
+        document.body.classList.add('modal-open');
+        modal.style.display = 'flex';
+    }
+        
+    // Close the modal when clicking outside the content
+    document.getElementById('mediaModal').addEventListener('click', function (event) {
+        if (event.target.id === 'mediaModal') { // Ensure only background clicks close the modal
+            closeMediaModal();
+        }
+    });
+
+    function closeMediaModal() {
+        const modal = document.getElementById('mediaModal');
+
+        // Re-enable scrolling and hide the modal
+        document.body.classList.remove('modal-open');
+        modal.style.display = 'none';
+    }
+        
+    </script>
+</body>
+
+</html>

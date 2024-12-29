@@ -1,0 +1,346 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styles only for iPhones */
+@media only screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    
+  
+    .grid-item img, .grid-item video {
+        width: 100%;
+        height: auto;
+        max-height: 1rem; /* Set much smaller max height for media */
+        object-fit: cover; /* Ensure media fits into the grid cells */
+        border-radius: 0.5rem;
+    }
+
+    /* Adjust media inside .media-grid and .media-row */
+    .media-grid img, .media-grid video,
+    .media-row img, .media-row video {
+        width: auto; /* Keep the natural aspect ratio */
+        height: auto; /* Set smaller height for all media */
+        object-fit: cover; /* Ensure content fits nicely */
+        border-radius: 0.5rem;
+    }
+
+    .project-row {
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+  
+    .project-description {
+        font-size: 1rem;
+        padding: 0.5rem;
+        order: -1; /* Move descriptions to appear before media */
+    }
+  
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+        grid-auto-rows: auto;
+    }
+  
+    .grid-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Align description at the bottom */
+        text-align: center;
+        padding: 0.5rem;
+    }
+  
+    .media-row {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        text-align: center;
+    }
+  
+    .center-icon {
+        font-size: 4rem;
+    }
+  
+    .media-modal {
+        justify-content: center;
+        align-items: center;
+    }
+  
+    .modal-content img,
+    .modal-content video {
+        max-width: 90%;
+        max-height: 80%;
+    }
+  
+    .name-container {
+        font-size: 1rem;
+        text-align: center;
+    }
+  
+    figure {
+        margin: 0 auto;
+    }
+  
+    img, video {
+        max-width: 100%;
+        height: auto;
+    }
+  }
+        
+
+ body {
+    font-family: 'Monaco', monospace;
+    font-weight: 100; /* Light */
+    background-color: #0c0507;
+    overflow-x: hidden;
+    position: relative;
+}
+
+h2 {
+    color: #8ab7f1; /* Light text color */
+    font-size: 1.5rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem 2rem;
+}
+
+header nav {
+    display: flex;
+    gap: 1rem;
+}
+
+header nav a {
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: lighter;
+    text-decoration: none;
+    color: #8ab7f1; 
+    transition: color 0.3s ease-in-out;
+}
+
+header nav a:hover {
+    color: #d1f5ff;
+}
+
+.name-container {
+    position: fixed; /* Keeps the name and tagline fixed in the viewport */
+    top: 2rem; /* Distance from the top of the viewport */
+    right: 5rem; 
+    text-align: right;
+    color: #f1e9d4;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+.name-container .name {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.name-container .tagline {
+    font-size: 1rem;
+    /* color: #814935; */
+
+    color: #8ab7f1;
+    margin: 0;
+}
+
+.name-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit the text color */
+}
+
+.name-link:hover {
+    color: #d1f5ff; /* Optional: Change color on hover */
+}
+
+
+/* Hero Section with Background Image */
+#hero {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: url('indexmedia/lab.jpg') no-repeat center center/cover;
+    display: flex;
+}
+
+/* Centered Hammer Icon */
+.center-icon {
+    font-size: 8rem; /* Adjust the size of the hammer */
+    color: #f1e9d4;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.center-icon:hover {
+    transform: scale(1.2); /* Slight scaling on hover */
+    color: #8ab7f1; /* Change color on hover */
+}
+
+.projects-container {
+    padding: 2rem;
+    margin-top: 4rem; /* Adjust the position of projects independently */
+    /* transform: scale(0.67);
+    transform-origin: top;  */
+
+}
+
+figure {
+    color: #d1f5ff;
+    margin-top: 0.3125rem;
+}
+
+.project-row {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 1rem; /* Add spacing between description and media */
+    margin-bottom: 1rem; /* Space between project rows */
+
+    opacity: 0; /* Start invisible */
+    transform: translateY(3.125rem); /* Start slightly below its position */
+    transition: all 0.8s ease-out; /* Smooth transition */
+
+}
+
+.project-row.show {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Moves to its intended position */
+}
+
+.project-description {
+    flex: 1; /* Make the description take up space proportionally */
+    padding-right: 1rem; /* Add space between description and media grid */
+    color: #f1e9d4;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    padding: 0;
+    margin-top: 1rem;
+    /* margin-top: 6rem; */
+}
+
+.expand-icon i {
+    color: #8ab7f1; /* Match your site's theme color */
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.expand-icon i:hover {
+    color: #f1e9d4; /* Change color on hover */
+}
+
+.full-description {
+    margin-top: 0.625rem;
+    line-height: 1.6;
+}
+
+
+.media-grid {
+    flex: 2; /* Media grid takes up more space */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+}
+
+.media-row {
+    display: flex;
+    gap: 0.5rem; 
+}
+
+model-viewer, img, video {
+    border-radius: 0.09375rem;
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+/* Scrollable code container */
+.scrollable-code {
+    width: 18.125rem;
+    height: 12.5rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background-color: #0c0507; /* Match your site's background color */
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Scrollable code container */
+.scrollable-code {
+    width: 18.125rem;
+    height: 12.5rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background-color: #0c0507; /* Match your site's background color */
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scrollable-code img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+/* Modal Styles */
+.media-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0c0507; /* Match body background color */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 100%; /* Increase max size for larger display */
+    max-height: 100%; /* Increase max size for larger display */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* Ensure no background color */
+}
+
+.modal-content img,
+.modal-content video {
+    width: auto;
+    height: auto;
+    max-width: 90vw; /* Use viewport width for larger scaling */
+    max-height: 90vh; /* Use viewport height for larger scaling */
+    border-radius: 0.625rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+/* Disable scrolling when modal is active */
+body.modal-open {
+    overflow: hidden;
+}
+
+[data-modal] {
+    transition: transform 0.3s ease, cursor 0.3s ease;
+    cursor: pointer; /* Default pointer icon */
+}
+
+/* Hover effect */
+[data-modal]:hover {
+    transform: scale(1.05); /* Makes the media 20% bigger */
+    cursor: pointer; /* Changes the cursor to indicate interactivity */
+}

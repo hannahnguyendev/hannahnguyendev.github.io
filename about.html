@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+            @media only screen and (max-width: 480px) {
+            body {
+                overflow-x: hidden !important;
+                overflow-y: auto; 
+                margin-top: 0.5rem !important;
+            }
+
+            .container {
+                flex-direction: column; /* Stack the description and grid vertically */
+                align-items: center;
+                margin: 0.1rem auto; /* Reduce margins for smaller screens */
+                padding: 0.1rem;
+            }
+
+            .description {
+                width: 16rem; /* Use more screen width */
+                margin: 2rem; /* Center and add spacing below */
+                text-align: center !important; /* Ensure the text itself is centered */
+            }
+
+            .description p {
+                font-size: 0.7rem !important;  /* Slightly smaller text size */
+                line-height: 1.4; /* Reduce line spacing */
+            }
+
+
+            .grid-container {
+                grid-template-columns: repeat(6, 1fr); /* Use 2 columns for better fit */
+                gap: 0.05rem !important; /* Reduce grid gap further */
+                padding: 0.01rem; /* Adjust padding for compact layout */
+            }
+
+            .grid-item img, .grid-item video {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: cover;
+                margin: 0; /* Ensure no extra margin is added */
+            }
+        }
+
+            
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Monaco', monospace;
+                background-color: #0c0507;
+                color: #f1e9d4;
+                overflow-y: auto            
+            }
+    
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                margin: 5rem auto;
+                max-width: 75rem;
+                margin-top: 3rem;
+            }
+    
+            .description {
+                max-width: 25rem;
+                flex: 1; /* Description Section */
+                margin-right: 8rem;
+            }
+    
+            .description p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin-top: 3rem;
+            }
+    
+            .grid-container {
+                max-width: 37.375rem;
+                flex: 2; /* Grid Section */
+                display: grid;
+                grid-template-columns: repeat(6, 1fr); /* 5 columns */
+                gap: 0.3rem; /* Spacing between grid items */
+            }
+    
+            .grid-item {
+                background-color: #0c0507;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            .grid-item img, .grid-item video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+    
+            .grid-item.center-video {
+                grid-column: span 3; /* Video spans 2 columns */
+            }
+    
+            h1 {
+                color: #d1f5ff;
+            }
+    
+            /* Modal Styles */
+            .media-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #0c0507; /* Semi-transparent background */
+                z-index: 9999;
+                justify-content: center;
+                align-items: center;
+            }
+
+                
+            .modal-content {
+                max-width: 100%; /* Increase max size for larger display */
+                max-height: 100%; /* Increase max size for larger display */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: transparent; /* Ensure no background color */
+            }
+    
+            .modal-content img,
+            .modal-content video {
+                width: auto;
+                height: auto;
+                max-width: 90vw; /* Use viewport width for larger scaling */
+                max-height: 90vh; /* Use viewport height for larger scaling */
+                border-radius: 0.625rem;
+                box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+            }
+    
+            body.modal-open {
+                overflow: hidden;
+            }
+    
+            [data-modal] {
+                transition: transform 0.3s ease, cursor 0.3s ease;
+                cursor: pointer;
+            }
+    
+            [data-modal]:hover {
+                transform: scale(1.05);
+                cursor: pointer; /* Changes the cursor to indicate interactivity */
+            }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header>
+        <nav>
+            <a href="index.html">projects</a>
+            <a href="about.html">personal</a>
+            <a href="resume.html">resume</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Description Section -->
+        <div class="description">
+            <p>
+                Hello! I am a mechanical engineering student at Harvard University from Randolph, Massachusetts. 
+                I thrive in building ideas from scratch, modeling, prototyping, and combining technical expertise with creative
+                problem-solving. 
+                
+                <br><br> 
+
+                I currently am doing research under Dr. Luis Herndandez-Nunez to create a custom laser-based microscope for optogenetic stimulation 
+                on neurons in zebrafish. In the past, I have been a research assistant in Joanna Aizenberg's Biomineralization and Biomimetics 
+                Lab at Harvard University helping develop the first-ever platform designed to universally control 
+                and optimize indoor climates. Additionally, I have been working
+                on physically constructing the quadrupedal launch mechanism that supposedly explained 
+                how pterosaurs (flying "dinosaurs") could leap into flight.
+                
+                <br><br>
+
+                Outside of classes and work, I enjoy enjoy making personal projects in our makerspace whether it's 
+                woodturning, making gifts for friends and family, exploring new technologies, 
+                or collaborating on impactful ideas. 
+            </p>
+        </div>
+
+        <!-- Grid Section -->
+        <div class="grid-container">
+
+            <div id="mediaModal" class="media-modal">
+                <span class="close-button" onclick="closeMediaModal()"></span>
+                <div class="modal-content">
+                    <!-- Content dynamically populated via JavaScript -->
+                </div>
+            </div>
+    
+            <!-- 43 Images -->
+            <div class="grid-item" style=" grid-column: span 2; grid-row: span 2;">
+                <img src="aboutmepics/kneel.jpg" alt="About Me Image" data-modal>
+                <!-- <img src="aboutmepics/melookingatmill.jpg" alt="About Me Image"> -->
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/carvingbox.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/lathebowl.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/topofbowl.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/steplathe.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/topofstepbowl.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/sideofstepbowl.jpg" alt="About Me Image" data-modal>
+            </div>
+
+            <div class="grid-item">
+                <img src="aboutmepics/carvingorca.jpg" alt="About Me Image" data-modal>
+            </div>
+
+            <!-- <div class="grid-item">
+                <img src="aboutmepics/hairpinshow.jpg" alt="About Me Image" data-modal>
+            </div> -->
+            <div class="grid-item">
+                <img src="aboutmepics/finalorca.jpg" alt="About Me Image" data-modal>
+            </div>
+
+            <!-- <div class="grid-item">
+                <img src="aboutmepics/hairpin.jpg" alt="About Me Image" data-modal>
+            </div>
+ -->
+
+
+            <!-- <div class="grid-item">
+                <img src="aboutmepics/housewclamps.jpg" alt="About Me Image" data-modal>
+            </div> -->
+            <div class="grid-item">
+                <img src="aboutmepics/housewithclampedfurniture.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/housewscattereditems.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/fullhousewsmiskis.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/housewsmiskis.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/hairpinshow.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/hairpin.jpg" alt="About Me Image" data-modal>
+            </div>
+
+
+
+
+            <div class="grid-item">
+                <img src="aboutmepics/zitherlasercut.png" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/makingthezither.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/zither.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item center-video">
+                <video src="aboutmepics/playingthzither.mov" autoplay muted loop data-modal></video>
+            </div>
+
+<!-- 
+            <div class="grid-item">
+                <img src="aboutmepics/blockorca.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/carvingorca.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/carvedorca.jpg" alt="About Me Image" style="transform: scaleX(-1);" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/anotherorca.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/finalorca.jpg" alt="About Me Image" data-modal>
+            </div>
+
+ -->
+
+            <!-- <div class="grid-item">
+                <img src="aboutmepics/makingtheflowers.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/originalstick.jpg" alt="About Me Image" data-modal>
+            </div>
+            <div class="grid-item">
+                <img src="aboutmepics/carvingthewood.jpg" alt="About Me Image" data-modal>
+            </div> -->
+
+        </div>
+    </div>
+    
+    <script>
+        // Add click event listeners to all media items
+        document.querySelectorAll('[data-modal]').forEach(item => {
+            item.addEventListener('click', (event) => {
+                openMediaModal(event.target);
+            });
+        });
+
+        document.querySelectorAll('[data-modal]').forEach(item => {
+    item.addEventListener('click', (event) => {
+        openMediaModal(event.target);
+    });
+});
+
+function openMediaModal(element) {
+    const modal = document.getElementById('mediaModal');
+    const modalContent = modal.querySelector('.modal-content');
+
+    // Clear any previous content
+    modalContent.innerHTML = '';
+
+    // Clone the clicked element (image or video)
+    const clone = element.cloneNode(true);
+    clone.style.objectFit = 'contain'; // Maintain aspect ratio
+    clone.removeAttribute('data-modal'); // Remove modal attribute
+
+    if (clone.tagName === 'VIDEO') {
+        clone.removeAttribute('muted');
+        clone.setAttribute('controls', '');
+        clone.pause();
+        clone.currentTime = 0;
+    }
+
+    // Add the cloned element to the modal
+    modalContent.appendChild(clone);
+
+    // Show the modal and disable scrolling
+    modal.style.display = 'flex';
+    document.body.classList.add('modal-open');
+}
+
+document.getElementById('mediaModal').addEventListener('click', (event) => {
+    if (event.target.id === 'mediaModal') {
+        closeMediaModal();
+    }
+});
+
+function closeMediaModal() {
+    const modal = document.getElementById('mediaModal');
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+}
+    </script>
+</body>
+</html>
