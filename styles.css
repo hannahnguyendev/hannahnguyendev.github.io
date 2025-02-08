@@ -7,6 +7,36 @@
 
 /* Apply styles only for iPhones */
 @media only screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+        /* Adjust Hero Section */
+        #hero {
+            height: 80vh; /* Make hero section shorter */
+        }
+    
+        /* Resize images and videos in the carousel */
+        .slide img,
+        .slide video {
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* Keeps full image without cropping */
+        }
+    
+        /* Adjust Captions */
+        .caption {
+            font-size: 1rem; /* Reduce text size */
+            max-width: 80%; /* Allow more width */
+            padding: 8px 12px; /* Smaller padding */
+        }
+    
+        /* Resize Center Icon */
+        .center-icon {
+            font-size: 3rem; /* Make it smaller for mobile */
+        }
+    
+        /* Resize Navigation Arrows */
+        .arrow {
+            font-size: 1.5rem;
+            padding: 5px;
+        }
     
   
     .grid-item img, .grid-item video {
