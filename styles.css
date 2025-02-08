@@ -158,7 +158,9 @@ header nav a {
 }
 
 header nav a:hover {
-    color: #8ab7f1;
+    /* color: #8ab7f1; */
+    transform: scale(1.2); /* Slight scaling on hover */
+
 }
 
 .name-container {
@@ -179,17 +181,19 @@ header nav a:hover {
     font-size: 1rem;
     /* color: #814935; */
 
-    color: #8ab7f1;
+    color: #d1f5ff;
     margin: 0;
 }
 
 .name-link {
-    text-decoration: none; /* Remove underline */
+    text-decoration: none; 
     color: inherit; /* Inherit the text color */
 }
 
 .name-link:hover {
-    color: #d1f5ff; /* Optional: Change color on hover */
+    color: #d1f5ff;
+    transform: scale(1.2); /* Slight scaling on hover */
+
 }
 
 /* Hero Section */
