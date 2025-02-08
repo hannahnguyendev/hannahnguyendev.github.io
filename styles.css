@@ -25,6 +25,8 @@
             font-size: 1rem; /* Reduce text size */
             max-width: 80%; /* Allow more width */
             padding: 8px 12px; /* Smaller padding */
+            bottom: 10px; /* Move caption higher */
+            left: 10px; /* Keep aligned */
         }
     
         /* Resize Center Icon */
