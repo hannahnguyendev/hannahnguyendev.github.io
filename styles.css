@@ -9,7 +9,7 @@
 @media only screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
         /* Adjust Hero Section */
         #hero {
-            height: 80vh; /* Make hero section shorter */
+            height: 50vh; /* Make hero section shorter */
         }
     
         /* Resize images and videos in the carousel */
