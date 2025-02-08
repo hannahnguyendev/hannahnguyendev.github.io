@@ -27,10 +27,10 @@
     <!-- Fixed Header -->
     <header>
         <nav>
-            <a href="index.html">projects</a>
-            <a href="about.html">personal</a>
-            <a href="resume.html">resume</a>
-            <a href="contact.html">contact</a>
+            <a href="index.html">Projects</a>
+            <a href="about.html">Personal</a>
+            <a href="resume.html">Resume</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
     <!-- Name and Tagline -->
@@ -40,12 +40,81 @@
         </a>
         <p class="tagline">Engineering Portfolio</p>
     </div>
-
     <section id="hero">
-        <div id="scroll-trigger" class="center-icon">
-            <i class="fa-solid fa-gear rotating-icon"></i>
+        <div class="carousel">
+            <!-- <div class="content">
+                <div id="scroll-trigger" class="center-icon">
+                    <i class="fa-solid fa-gear rotating-icon"></i>
+                </div>
+            </div> -->
+
+            <div class="slide active">
+                <img src ="indexmedia/lab.jpg" >
+                <div class="caption">working in the lab!</div>
+            </div>
+
+            <div class="slide">
+                <video autoplay loop muted playsinline>
+                    <source src="indexmedia/3bodymotor.MOV" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">working with motors for art-tech installation!</div>
+            </div>
+            <div class="slide">
+                <video autoplay loop muted playsinline>
+                    <source src="indexmedia/shortmovingpaint.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">bringing supplies to SEC garage for blackbox painting!</div>
+            </div>
+            <div class="slide">
+                <video autoplay loop muted playsinline>
+                    <source src="indexmedia/es50initialplate.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">creating a proof of concept for glow grid!</div>
+            </div>
+            <div class="slide">
+                <video autoplay loop muted playsinline>
+                    <source src="indexmedia/blackbox.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">blackbox kinetic motion!</div>
+            </div>
+            <!-- <div class="slide">
+                <video autoplay loop muted playsinline>
+                    <source src="indexmedia/movingabunchofwood.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="caption">moving a bunch of wood!</div>
+            </div> -->
+
+    
+            <!-- Navigation Arrows -->
+            <div class="navigation">
+                <div class="arrow left-arrow">&#10094;</div>
+                <div id="scroll-trigger" class="center-icon">
+                    <i class="fa-solid fa-gear rotating-icon"></i>
+                </div>
+                <div class="arrow right-arrow">&#10095;</div>
+            </div>                
+        
         </div>
     </section>
+    
+    <!-- <section id="hero">
+        <video autoplay loop muted playsinline>
+            <source src="indexmedia/3bodymotor.MOV" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="caption">Creating Multi-Motor system for art-tech installation!</div>
+        
+        <div class="content">
+            <div id="scroll-trigger" class="center-icon">
+                <i class="fa-solid fa-gear rotating-icon"></i>
+            </div>
+        </div>
+    </section> -->
     
 
     <!-- Projects Section -->
@@ -348,49 +417,75 @@
             });
         });
 
-    function openMediaModal(element) {
-        const modal = document.getElementById('mediaModal');
-        const modalContent = modal.querySelector('.modal-content');
+        function openMediaModal(element) {
+            const modal = document.getElementById('mediaModal');
+            const modalContent = modal.querySelector('.modal-content');
 
-        // Clear any previous content in the modal
-        modalContent.innerHTML = '';
+            // Clear any previous content in the modal
+            modalContent.innerHTML = '';
 
-        // Create a clone of the clicked element (image or video)
-        const clone = element.cloneNode(true);
-        clone.style.transform = 'scale(1.8)'; // Scale the content to 1.5 times its original size
-        clone.style.transformOrigin = 'center'; // Ensure scaling is centered
-        clone.style.transition = 'transform 0.3s ease, opacity 0.3s ease'; // Add smooth scaling transition
-        clone.style.objectFit = 'contain'; // Maintain aspect ratio
-        clone.style.opacity = '0'; // Start transparent for fade-in effect
-        clone.removeAttribute('data-modal'); // Remove modal attributes from the clone
+            // Create a clone of the clicked element (image or video)
+            const clone = element.cloneNode(true);
+            clone.style.transform = 'scale(1.8)'; // Scale the content to 1.5 times its original size
+            clone.style.transformOrigin = 'center'; // Ensure scaling is centered
+            clone.style.transition = 'transform 0.3s ease, opacity 0.3s ease'; // Add smooth scaling transition
+            clone.style.objectFit = 'contain'; // Maintain aspect ratio
+            clone.style.opacity = '0'; // Start transparent for fade-in effect
+            clone.removeAttribute('data-modal'); // Remove modal attributes from the clone
 
-        // Add the cloned element to the modal
-        modalContent.appendChild(clone);
+            // Add the cloned element to the modal
+            modalContent.appendChild(clone);
 
-        // Trigger the fade-in after adding the element
-        setTimeout(() => {
-            clone.style.opacity = '1'; // Fade-in effect
-        }, 10); // Short delay to ensure the transition is triggered
+            // Trigger the fade-in after adding the element
+            setTimeout(() => {
+                clone.style.opacity = '1'; // Fade-in effect
+            }, 10); // Short delay to ensure the transition is triggered
 
-        // Disable scrolling and display the modal
-        document.body.classList.add('modal-open');
-        modal.style.display = 'flex';
-    }
-        
-    // Close the modal when clicking outside the content
-    document.getElementById('mediaModal').addEventListener('click', function (event) {
-        if (event.target.id === 'mediaModal') { // Ensure only background clicks close the modal
-            closeMediaModal();
+            // Disable scrolling and display the modal
+            document.body.classList.add('modal-open');
+            modal.style.display = 'flex';
         }
-    });
+            
+        // Close the modal when clicking outside the content
+        document.getElementById('mediaModal').addEventListener('click', function (event) {
+            if (event.target.id === 'mediaModal') { // Ensure only background clicks close the modal
+                closeMediaModal();
+            }
+        });
 
-    function closeMediaModal() {
-        const modal = document.getElementById('mediaModal');
+        function closeMediaModal() {
+            const modal = document.getElementById('mediaModal');
 
-        // Re-enable scrolling and hide the modal
-        document.body.classList.remove('modal-open');
-        modal.style.display = 'none';
-    }
+            // Re-enable scrolling and hide the modal
+            document.body.classList.remove('modal-open');
+            modal.style.display = 'none';
+        }
+    
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const slides = document.querySelectorAll(".slide");
+            const leftArrow = document.querySelector(".left-arrow");
+            const rightArrow = document.querySelector(".right-arrow");
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle("active", i === index);
+                });
+            }
+
+            leftArrow.addEventListener("click", () => {
+                currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+                showSlide(currentIndex);
+            });
+
+            rightArrow.addEventListener("click", () => {
+                currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+                showSlide(currentIndex);
+            });
+
+            showSlide(currentIndex); // Show the first video initially
+        });
         
     </script>
 </body>
