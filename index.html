@@ -53,17 +53,6 @@
                 <div class="caption">working in the lab!</div>
             </div>
             <div class="slide">
-                <img src ="indexmedia/meandsofia.jpeg" >
-                <div class="caption">working on motor board!</div>
-            </div>
-
-            <div class="slide">
-                <img src ="indexmedia/prettymotors.jpg" >
-                <div class="caption">motor board!</div>
-            </div>
-
-
-            <div class="slide">
                 <video autoplay loop muted playsinline>
                     <source src="indexmedia/3bodymotor.MOV" type="video/mp4">
                     Your browser does not support the video tag.
@@ -78,11 +67,19 @@
                 <div class="caption">bringing supplies to SEC garage for blackbox painting!</div>
             </div>
             <div class="slide">
+                <img src ="indexmedia/prettymotors.jpg" >
+                <div class="caption">motor board!</div>
+            </div>
+            <div class="slide">
                 <video autoplay loop muted playsinline>
                     <source src="indexmedia/es50initialplate.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="caption">creating a proof of concept for glow grid!</div>
+            </div>
+            <div class="slide">
+                <img src ="indexmedia/meandsofia.jpeg" >
+                <div class="caption">working on motor board!</div>
             </div>
             <div class="slide">
                 <video autoplay loop muted playsinline>
@@ -137,6 +134,72 @@
             </div>
         </div>
         
+        <!-- Bridge -->
+        <div class="project-row" style="justify-content: flex-end;">
+            <div class="project-description" style="text-align: left; margin-left: 2rem; margin-right: 3rem;">
+                <h2>Bridge Competition: Chappell Prone to Buckle</h2>
+                <p class="short-description">
+                    As part of the ES120 Bridge Building Competition, our team engineered a high-performance arch bridge 
+                    constructed from plywood, spanning 12 inches with a 2 inch height, adhering to a 6:1 span-to-depth ratio
+                    to prevent buckling and minimize deflection. On the Instron, our bridge achieved a 1250:1 strength-to-weight ratio, 
+                    supporting 250 kgf at only 0.2 kg and complied with strict spatial constraints!
+                    <br><br>
+                    <span class="expand-icon" onclick="toggleDescription(this)">
+                        <i class="fa-solid fa-hammer" style="font-size: 2rem; transition: transform 0.3s ease;"></i>
+                    </span>
+                </p>
+                <p class="full-description" style="display: none;">
+                    We designed and 3D modeled the bridge in SolidWorks, then used finite element analysis (FEA) to simulate stress 
+                    concentrations and deflection behavior under load. The structure utilized a triangulated truss system and branching 
+                    members to distribute forces efficiently, with top bracing to reinforce regions under high compressive 
+                    stress and larger base mounts at key tensile stress points. 
+                    Our failure analysis aligned closely with simulation results, fractures occuring at the 
+                    corners of the arch. All components were laser-cut and assembled using non-structural adhesives.
+                </p>
+            </div>
+            <div class="media-grid">
+                <!-- Row 1 -->
+                <div class="media-row">
+                    <figure style="text-align: center;">
+                        <model-viewer src="indexmedia/bridge.glb" ar ar-modes="webxr scene-viewer quick-look" 
+                            auto-rotate camera-controls disable-pan disable-zoom tone-mapping="neutral" poster="poster.jpeg" 
+                            shadow-intensity="1" camera-orbit="-1105deg 89.1deg 0.3365m" field-of-view="30deg" 
+                            style="width:15.375rem; height:10rem;" >
+                        </model-viewer>
+                        <figcaption>3D Claw Model</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/lasercutbridge.jpg" alt="es50 Image" style="width: 12.625rem; height:10rem;" data-modal>
+                        <figcaption>Laser Cutting!</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/finalbridge.jpg" alt="ES50 Image" style="width: 15rem; height:10rem;" data-modal>
+                        <figcaption>→ Final Bridge!</figcaption>
+                    </figure>
+        
+                </div>
+                                <!-- Row 2 -->
+                <div class="media-row">
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/FEAgifbridge.gif" alt="FEA Animation" style="width:12.375rem; height:10rem;" data-modal>
+                        <figcaption>FEA Analysis</figcaption>
+                    </figure>
+
+                    <figure style="text-align: center;">
+                        <img src="indexmedia/assemblebridge.jpg" alt="Code Snippet" style="width: 12.875rem; height:10rem;" data-modal>
+                        <figcaption>Assembly!</figcaption>
+                    </figure>
+                    <figure style="text-align: center;">
+                        <video src="indexmedia/bridgevideo.mov" autoplay muted loop controls style="width: 17.5rem; height:10rem;" data-modal></video>
+                        <figcaption>Testing on the Instron!</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br>
+
+        
+
         <!-- Project 1 -->
         <div class="project-row">        
             <!-- Media Grid -->
