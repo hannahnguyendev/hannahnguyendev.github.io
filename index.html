@@ -42,14 +42,6 @@
     </div>
 
     <section id="hero">
-        <div class="carousel">
-                <div class="carouselname-container">
-                <a href="index.html" class="name-link">
-                    <h1 class="name">Hannah Nguyen</h1>
-                </a>
-                <p class="tagline">Engineering Portfolio</p>
-        </div>
-
             <div class="slide active">
                 <img src ="indexmedia/research/researchpictures/hannahflap.jpg" >
                 <div class="caption">working with the flapper!</div>
@@ -635,10 +627,32 @@
                 showSlide(currentIndex);
             });
 
-            showSlide(currentIndex); // Show the first video initially
-        });
-        
-    </script>
+            showSlide(currentIndex);
+
+            const hero = document.getElementById('hero');
+            const nameEl = document.querySelector('.name-container');
+
+            if (!hero || !nameEl) return;
+
+            // Ensure correct state immediately on load
+            const setState = () => {
+                const rect = hero.getBoundingClientRect();
+                const inView = rect.top < window.innerHeight && rect.bottom > 0;
+                nameEl.classList.toggle('invert', inView);
+            };
+
+            // Observe hero visibility (robust + low-cost)
+            const io = new IntersectionObserver(([entry]) => {
+                nameEl.classList.toggle('invert', entry.isIntersecting);
+            }, { threshold: 0.1, rootMargin: "0px 0px -1px 0px" });
+            io.observe(hero);
+
+            // Set the initial state in case the observer fires a tick late
+            setState();
+            window.addEventListener('load', setState);
+            window.addEventListener('resize', setState);
+            });
+</script>
 </body>
 
 </html>
