@@ -173,7 +173,16 @@ header nav a:hover {
     text-align: right;
     color: #f1e9d4;
     z-index: 1000; 
+    transition: color .2s ease; /* smooth swap */
 }
+
+
+/* while hero is visible, invert over whatever is behind it */
+.name-container.invert {
+  mix-blend-mode: difference;
+  color: #fff;  /* difference works best from white text */
+}
+
 
 .name-container .name {
     font-size: 2rem;
@@ -220,8 +229,24 @@ header nav a:hover {
     align-items: center;
     justify-content: center;
 }
-
+/* 
 .carouselname-container {
+   position: fixed; 
+    top: 2rem; 
+    right: 5rem; 
+    text-align: right;
+    color: #f1e9d4;
+    mix-blend-mode: difference;
+    z-index: 1000; 
+}
+
+
+.carouselname-container .tagline {
+    font-size: 1rem;
+    color: #d1f5ff;
+    margin: 0;
+} */
+/* .carouselname-container { 
    position: fixed; 
     top: 2rem; 
     right: 5rem; 
@@ -235,11 +260,21 @@ header nav a:hover {
     font-size: 2rem;
     margin: 0;
 }
+ */
 
-.carouselname-container .tagline {
-    font-size: 1rem;
-    color: #d1f5ff;
-    margin: 0;
+/* While hero is in view: show blended name, hide normal name */
+body.hero-in-view .carouselname-container {
+  display: block;
+}
+body.hero-in-view .name-container {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Optional: smooth fade */
+.name-container,
+.carouselname-container {
+  transition: opacity 200ms ease;
 }
 
 
