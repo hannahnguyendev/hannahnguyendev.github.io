@@ -629,29 +629,29 @@
 
             showSlide(currentIndex);
 
-            const hero = document.getElementById('hero');
-            const nameEl = document.querySelector('.name-container');
+    const hero = document.getElementById('hero');
+    const nameEl = document.querySelector('.name-container');
 
-            if (!hero || !nameEl) return;
+    if (!hero || !nameEl) return;
 
-            // Ensure correct state immediately on load
-            const setState = () => {
-                const rect = hero.getBoundingClientRect();
-                const inView = rect.top < window.innerHeight && rect.bottom > 0;
-                nameEl.classList.toggle('invert', inView);
-            };
+    // Ensure correct state immediately on load
+    const setState = () => {
+        const rect = hero.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        nameEl.classList.toggle('invert', inView);
+    };
 
-            // Observe hero visibility (robust + low-cost)
-            const io = new IntersectionObserver(([entry]) => {
-                nameEl.classList.toggle('invert', entry.isIntersecting);
-            }, { threshold: 0.1, rootMargin: "0px 0px -1px 0px" });
-            io.observe(hero);
+    // Observe hero visibility (robust + low-cost)
+    const io = new IntersectionObserver(([entry]) => {
+        nameEl.classList.toggle('invert', entry.isIntersecting);
+    }, { threshold: 0.1, rootMargin: "0px 0px -1px 0px" });
+    io.observe(hero);
 
-            // Set the initial state in case the observer fires a tick late
-            setState();
-            window.addEventListener('load', setState);
-            window.addEventListener('resize', setState);
-            });
+    // Set the initial state in case the observer fires a tick late
+    setState();
+    window.addEventListener('load', setState);
+    window.addEventListener('resize', setState);
+    });
 </script>
 </body>
 

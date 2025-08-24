@@ -165,7 +165,6 @@ header nav a:hover {
 
 }
 
-
 .name-container {
     position: fixed; 
     top: 2rem; 
@@ -176,13 +175,11 @@ header nav a:hover {
     transition: color .2s ease; /* smooth swap */
 }
 
-
 /* while hero is visible, invert over whatever is behind it */
 .name-container.invert {
   mix-blend-mode: difference;
   color: #fff;  /* difference works best from white text */
 }
-
 
 .name-container .name {
     font-size: 2rem;
@@ -629,4 +626,109 @@ body.modal-open {
 [data-modal]:hover {
     transform: scale(1.05); /* Makes the media 20% bigger */
     cursor: pointer; /* Changes the cursor to indicate interactivity */
+}
+
+/* ===============================
+   Better mobile layout (phones & small tablets)
+   =============================== */
+/* 
+
+/* ===== Mobile clean-up ===== */
+/* Phone: keep original color; disable inversion */
+@media (max-width: 768px) {
+header { left: 0; width: 100%; }
+header nav {
+  margin-right: auto;
+  justify-content: flex-start !important;
+}
+
+/* Put the name block on the LEFT (desktop + mobile) */
+.name-container {
+  left: 1rem !important;
+  right: auto !important;
+  transform: none !important;
+  text-align: left !important;
+}
+  .name-container,
+  .name-container.invert {
+    mix-blend-mode: normal !important;
+    color: #f1e9d4 !important;   /* your original */ 
+  }
+  .name-container .tagline {
+    display: none;
+  }
+.navigation {
+  position: absolute;
+  right: 20px;           /* stick to right edge */
+  bottom: 20px;          /* stick to bottom */
+  left: auto;            /* cancel the old centering */
+  transform: none;       /* cancel translateX(-50%) */
+}
+
+/* Optional: keep it tight on phones and off the safe area */
+@media (max-width: 768px) {
+  .navigation {
+    right: calc(12px + env(safe-area-inset-right, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    gap: 10px;
+    padding: 6px 10px;
+  }
+  .navigation .center-icon { width: 36px; height: 36px; font-size: 36px; display: grid; place-items: center; }
+  .navigation .arrow { font-size: 22px; padding: 0;
+}
+}
+
+  /* Make the grid pack tightly and fill holes */
+  .media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    grid-auto-flow: dense;           /* back-fill empty spots */
+    align-items: start;
+  }
+
+  /* Flatten the nested rows so every figure is a grid item */
+  .media-row { display: contents; }
+
+  /* Force media to ignore inline width/height from HTML */
+  .media-grid img,
+  .media-grid video,
+  .media-grid model-viewer {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    border-radius: 12px;
+  }
+
+  /* Uniform tile heights (cleanest look) */
+  .media-grid img,
+  .media-grid video,
+  .media-grid model-viewer {
+    aspect-ratio: 4 / 3;       /* pick 16/9 if you prefer */
+    object-fit: cover;          /* crops edges a bit to keep rows even */
+    background: #0c0507;        /* hides any letterboxing if needed */
+  }
+
+  /* Tighter captions so they don’t balloon a row */
+  .media-grid figure { margin: 0; }
+  .media-grid figure > figcaption {
+    margin-top: 6px;
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+}
+
+/* If you absolutely want NO cropping, swap this block in place of object-fit:cover: */
+/*
+.media-grid img,
+.media-grid video,
+.media-grid model-viewer {
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: #0c0507;
+}
+*/
+
 }
