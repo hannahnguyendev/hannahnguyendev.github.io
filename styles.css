@@ -134,6 +134,24 @@ h2 {
     font-size: 1.5rem;
 }
 
+.contact-link,
+.contact-link:link,
+.contact-link:visited {
+    
+  color: #d1f5ff;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  color: #f1e9d4;
+  font-size: larger;
+}
+
+.contact-link:active {
+  opacity: 0.85;
+}
+
+
 header {
     position: fixed;
     top: 0;
@@ -167,8 +185,8 @@ header nav a:hover {
 
 .name-container {
     position: fixed; 
-    top: 2rem; 
-    right: 5rem; 
+    top: 1rem; 
+    right: 3rem; 
     text-align: right;
     color: #f1e9d4;
     z-index: 1000; 
@@ -182,16 +200,15 @@ header nav a:hover {
 }
 
 .name-container .name {
-    font-size: 2rem;
-    margin: 0;
+    font-size: 2.2rem;
+    margin-top: 3%;
 }
 
 .name-container .tagline {
-    font-size: 1rem;
+    font-size: 1.2rem;
     /* color: #814935; */
-
     color: #d1f5ff;
-    margin: 0;
+    top: 1rem; 
 }
 
 .name-link {
@@ -628,54 +645,67 @@ body.modal-open {
     cursor: pointer; /* Changes the cursor to indicate interactivity */
 }
 
+  /* Hidden by default (desktop) */
+.mobile-links { display: none; }
+#backToTop { display: none; }
+
+
 /* ===============================
    Better mobile layout (phones & small tablets)
    =============================== */
 /* 
 
-/* ===== Mobile clean-up ===== */
-/* Phone: keep original color; disable inversion */
+
+/* phone: basic spacing + smooth scroll offset */
 @media (max-width: 768px) {
-header { left: 0; width: 100%; }
+/* header { right: 0; width: 100%;     padding: 1rem 2rem;}
 header nav {
-  margin-right: auto;
-  justify-content: flex-start !important;
-}
+  margin-left: auto;
+  justify-content: flex-end;
+} */
 
 /* Put the name block on the LEFT (desktop + mobile) */
 .name-container {
-  left: 1rem !important;
-  right: auto !important;
-  transform: none !important;
-  text-align: left !important;
+    margin-top: 108%;
+    margin-left: 3%;
 }
+
+  .name-container .name {
+    font-size: 1.5rem !important; 
+  }
+
   .name-container,
   .name-container.invert {
     mix-blend-mode: normal !important;
     color: #f1e9d4 !important;   /* your original */ 
   }
-  .name-container .tagline {
-    display: none;
-  }
-.navigation {
-  position: absolute;
-  right: 20px;           /* stick to right edge */
-  bottom: 20px;          /* stick to bottom */
-  left: auto;            /* cancel the old centering */
-  transform: none;       /* cancel translateX(-50%) */
-}
 
-/* Optional: keep it tight on phones and off the safe area */
-@media (max-width: 768px) {
-  .navigation {
-    right: calc(12px + env(safe-area-inset-right, 0px));
-    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-    gap: 10px;
-    padding: 6px 10px;
+  /* .navigation .arrow {
+    display: none !important;
   }
-  .navigation .center-icon { width: 36px; height: 36px; font-size: 36px; display: grid; place-items: center; }
-  .navigation .arrow { font-size: 22px; padding: 0;
-}
+
+  .navigation .center-icon {
+    font-size: 5rem;
+    display: flex;
+    margin-top: 5% !important;
+  } */
+
+  /* PHONE ONLY */
+@media (max-width: 768px) {
+  /* Make sure the nav row actually exists on mobile */
+  .navigation {
+    display: block !important;   /* overrides any display:none */
+    position: static !important; /* don't center the row */
+    left: auto !important;
+    transform: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  /* Show only the gear */
+  .navigation .arrow { display: none !important; }
+
+
 }
 
   /* Make the grid pack tightly and fill holes */
@@ -718,6 +748,104 @@ header nav {
     font-size: 0.95rem;
     line-height: 1.25;
   }
+
+    .caption {
+    display: none;
+  }
+
+  /* Smooth scroll everywhere */
+/* ----- PHONE ONLY (≤768px) ----- */
+  /* keep desktop header layout but make phone feel single-page */
+  header { padding: 10px 12px; }
+
+  /* name: top-left on phone; show only while hero is visible */
+  .name-container {
+    position: fixed;
+    top: calc(10px + env(safe-area-inset-top, 0px));
+    left: calc(12px + env(safe-area-inset-left, 0px));
+    right: auto;
+    text-align: left;
+    mix-blend-mode: normal !important;
+    color: #f1e9d4 !important;
+    opacity: 0;                    /* hidden by default */
+    pointer-events: none;
+    transition: opacity .2s ease;
+  }
+  .name-container.invert {         /* your JS already toggles .invert on hero */
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  
+
+
+  html { scroll-behavior: smooth; }
+
+
+/* Phone-only */
+@media (max-width: 768px) {
+  /* hide desktop header on phones */
+  header { display: none !important; }
+
+  /* show mobile quick links */
+  .mobile-links {
+    display: block;
+    position: fixed;
+    margin-top: 120%;
+    margin-left: 6%;
+    z-index: 1100;
+    line-height: 0.8;
+        opacity: 0;                    /* hidden by default */
+    transition: opacity .2s ease;
+  }
+
+  .mobile-links.invert {        
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-links .tagline {
+    font-size: 0.95rem;
+    color: #d1f5ff;
+    text-decoration: none;
+  }
+  .mobile-links p + p { margin-top: 4px; }
+
+  /* back-to-top button */
+  #backToTop {
+    display: block;
+    position: fixed;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    right: calc(16px + env(safe-area-inset-right, 0px));
+    width: 44px; height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #d1f5ff;
+    font-size: 22px;
+    line-height: 44px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease, transform .15s ease;
+  }
+  #backToTop.visible { opacity: 1; pointer-events: auto; }
+  #backToTop:active { transform: scale(0.96); }
+
+  /* nice smooth scrolling on phones */
+  html { scroll-behavior: smooth; }
+}
+
+.name-container .tagline {
+    display: none !important;
+}
+
+
+
 }
 
 /* If you absolutely want NO cropping, swap this block in place of object-fit:cover: */
@@ -730,5 +858,3 @@ header nav {
   background: #0c0507;
 }
 */
-
-}

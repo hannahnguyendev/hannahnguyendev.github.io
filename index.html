@@ -37,9 +37,18 @@
     <div class="name-container">
         <a href="index.html" class="name-link">
             <h1 class="name">Hannah Nguyen</h1>
-        </a>
-        <p class="tagline">Engineering Portfolio</p>
+            <p class="tagline">Engineering Portfolio</p>
+        </a>        
     </div>
+
+    <div class="mobile-links" aria-label="Quick links">
+    <p><a href="mailto:hnguyen@college.harvard.edu" class="tagline">hnguyen@college.harvard.edu</a></p>
+    <p><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hannahnguyendev/" class="tagline">linkedin.com/in/hannahnguyendev/</a></p>
+    <p><a href="indexmedia/HannahNguyenResumeF825_2.pdf" class="tagline">hannah's resume</a></p>
+    </div>
+
+    <button id="backToTop" aria-label="Back to top">↑</button>
+
 
     <section id="hero">
             <div class="slide active">
@@ -131,6 +140,13 @@
 
     <!-- Projects Section -->
     <div class="projects-container">
+
+        <div id="singlepage">
+        <section id="personal" class="sp-section"></section>
+        <section id="resume"   class="sp-section"></section>
+        <section id="contact"  class="sp-section"></section>
+        </div>
+
 
         <div id="mediaModal" class="media-modal">
             <span class="close-button" onclick="closeMediaModal()"></span>
@@ -236,7 +252,7 @@
                             shadow-intensity="1" camera-orbit="-1105deg 89.1deg 0.3365m" field-of-view="30deg" 
                             style="width:15.375rem; height:10rem;" >
                         </model-viewer>
-                        <figcaption>3D Claw Model</figcaption>
+                        <figcaption>Bridge CAD Model</figcaption>
                     </figure>
                     <figure style="text-align: center;">
                         <img src="indexmedia/lasercutbridge.jpg" alt="es50 Image" style="width: 12.625rem; height:10rem;" data-modal>
@@ -268,9 +284,7 @@
         </div>
         <br><br><br><br><br><br><br>
 
-        
-
-        <!-- Project 1 -->
+                <!-- Project 1 -->
         <div class="project-row">        
             <!-- Media Grid -->
             <div class="media-grid">
@@ -335,6 +349,7 @@
         </div>
         <br><br><br><br><br><br><br>
 
+
         <!-- Project 2 -->
         <div class="project-row" style="justify-content: flex-end;">
             <div class="project-description" style="text-align: left; margin-left: 2rem; margin-right: 2rem;">
@@ -360,110 +375,39 @@
                 <div class="media-row">
                     <figure style="text-align: center;">
                         <video src="indexmedia/prototype.mov" autoplay muted loop style="width: 17.5rem;" data-modal></video>
-                        <figcaption>First Prototype -></figcaption>
+                        <figcaption>First Prototype</figcaption>
                     </figure>
                     <figure style="text-align: center;">
                         <video src="indexmedia/happydebug.mov" autoplay muted loop style="width: 17.5rem;" data-modal></video>
-                        <figcaption>-Implementation/Debugging-</figcaption>
+                        <figcaption>Debugging</figcaption>
                     </figure>
                     <figure style="text-align: center;">
                         <video src="indexmedia/finalplay.MOV" autoplay muted loop style="width: 17.5rem;" data-modal></video>
-                        <figcaption>-> Final Gameplay!</figcaption>
+                        <figcaption>Final Gameplay!</figcaption>
                     </figure>
                 </div>
                                 <!-- Row 2 -->
                 <div class="media-row">
                     <figure style="text-align: center;">
-                        <img src="indexmedia/es50child.jpg" alt="ES50 Image" style="width: 15rem; height:15rem;" data-modal>
+                        <img src="indexmedia/es50child.jpg" alt="ES50 Image" style="width: 17.5rem; height:12rem" data-modal>
+                        <figcaption>Testing at fair!</figcaption>
                     </figure>
                     <figure style="text-align: center;">
-                        <img src="indexmedia/es50circuit.png" alt="es50 Image" style="width: 15.625rem; height:15rem;" data-modal>
+                        <img src="indexmedia/es50circuit.png" alt="es50 Image" style="width: 17.5rem; height:12rem" data-modal>
+                        <figcaption>Circuit Schematic</figcaption>
                     </figure>
 
                     <figure style="text-align: center;">
-                        <img src="indexmedia/fullarduinocode.png" alt="Code Snippet" style="width: 21.875rem; height:14.6875rem;" data-modal>
-                        <figcaption>Click + zoom in to read!</figcaption>
+                        <img src="indexmedia/fullarduinocode.png" alt="Code Snippet" style="width: 17.5rem; height:12rem" data-modal>
+                        <figcaption>Final code</figcaption>
                     </figure>
                 </div>
             </div>
         </div>
         <br><br><br><br><br><br><br>
 
-        <!-- Project 3 -->
-        <div class="project-row">        
-            <!-- Media Grid -->
-            <div class="media-grid">
-                <!-- Row 1 -->
-                <div class="media-row">
-                    <figure style="text-align: center;">
-                        <img src="indexmedia/treewwires.jpg" alt="tree Image" style="width: 11.25rem; height: 15rem" data-modal>
-                    </figure>
-                    <figure style="text-align: center;">
-                        <img src="indexmedia/treewithoutlights.jpg" alt="tree Image" style="width: 11.25rem; height: 15rem" data-modal>
-                    </figure>
-                    <figure style="text-align: center;">
-                        <img src="indexmedia/mit.jpg" alt="tree Image" style="width: 15rem; height: 15rem" data-modal>
-                    </figure>
-                    <figure style="text-align: center;">
-                        <video src="indexmedia/guyfinal.mp4" autoplay muted loop style="height:15rem" data-modal></video>
-                    </figure>
-                 </div>
-                <!-- Row 2 -->
-                <div class="media-row">
-                    <figure style="text-align: center;">
-                        <img src="indexmedia/soldering.jpg" alt="tree Image" style="width: 10.3125rem; height: 10.3125rem;" data-modal>
-                        <figcaption style="margin-top: 0;">Soldering</figcaption>
-                    </figure>
-                    <figure style="text-align: center;">
-                        <video src="indexmedia/workingarduino.mov" autoplay muted loop style="width: 18.125rem;" data-modal></video>
-                        <figcaption style="margin-top: 0;">Prototyping/Debugging</figcaption>
-                    </figure>
-                    <figure style="text-align: center;">
-                        <video src="indexmedia/heart.mov" autoplay muted loop style="width: 18.125rem;" data-modal></video>
-                        <figcaption style="margin-top: 0;">Creating the Tree Heart</figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="project-description" style="text-align: left; margin-right: 2rem; margin-left: 2rem;">
-                <h2>Feed the Trees!</h2>
-                <p class="short-description">
-                    During Conflux Winter Residency, I worked with another fellow to create an immerisve experience 
-                    featuring a parasitic tree! I led the hardware aspect while they led
-                    the VR experience (both of us created the physical tree out of recycled materials).
-                    <br><br>
-                    <span class="expand-icon" onclick="toggleDescription(this)">
-                        <i class="fa-solid fa-hammer" style="font-size: 2rem; transition: transform 0.3s ease;"></i>
-                    </span>
-                </p>
-                <p class="full-description" style="display: none;">
-                    The tree "heart" is a 
-                    capacitive touch device that uses heart sensors and vibration motors to simulate your blood going into the tree.
-                    During the exhibition of the art residency, we were able to talk to numerous people including 
-                    a professor from MIT Media Lab and a curator of an art gallery in Sweden (whom Conflux is now working with 
-                    to create a new exhibit)!
-                </p>
-            </div>
-
-        </div>
-        <br><br><br><br><br>
         <!-- Project 2 -->
         <div class="project-row" style="justify-content: flex-end;">
-            <div class="project-description" style="text-align: left; margin-left: 2rem; margin-right: 2rem;">
-                <h2>BlackBox Gallery</h2>
-                <p class="short-description">
-                    BlackBox Gallery is a project I co-founded for my club Conflux (Art Tech). We wanted to create
-                    a showcase room that could be altered however wanted by student artists. It ended up being a 16 x 12 x 10 ft room. 
-                    <br><br>
-                    <span class="expand-icon" onclick="toggleDescription(this)">
-                        <i class="fa-solid fa-hammer" style="font-size: 2rem; transition: transform 0.3s ease;"></i>
-                    </span>
-                </p>
-                <p class="full-description" style="display: none;">
-                    We built everything from scratch, connecting the walls 
-                    with brackets so it could be disconnected and relocated in the future. There are beams at the top for projectors
-                    and we will be showcasing our first artist in spring! 
-                </p>
-            </div>
             <div class="media-grid">
                 <!-- Row 1 -->
                 <div class="media-row">
@@ -493,6 +437,23 @@
                    </figure>
                 </div>
             </div>
+                        <div class="project-description" style="text-align: left; margin-left: 2rem; margin-right: 2rem;">
+                <h2>BlackBox Gallery</h2>
+                <p class="short-description">
+                    BlackBox Gallery is a project I co-founded for my club Conflux (Art Tech). We wanted to create
+                    a showcase room that could be altered however wanted by student artists. It ended up being a 16 x 12 x 10 ft room. 
+                    <br><br>
+                    <span class="expand-icon" onclick="toggleDescription(this)">
+                        <i class="fa-solid fa-hammer" style="font-size: 2rem; transition: transform 0.3s ease;"></i>
+                    </span>
+                </p>
+                <p class="full-description" style="display: none;">
+                    We built everything from scratch, connecting the walls 
+                    with brackets so it could be disconnected and relocated in the future. There are beams at the top for projectors
+                    and we will be showcasing our first artist in spring! 
+                </p>
+            </div>
+
         </div>
     </div>
 
@@ -629,21 +590,46 @@
 
             showSlide(currentIndex);
 
+            // Back-to-top visibility + click (phones only)
+            const toTopBtn = document.getElementById('backToTop');
+            const isPhone = () => window.matchMedia('(max-width: 768px)').matches;
+
+            window.addEventListener('scroll', () => {
+            if (!toTopBtn) return;
+            if (isPhone()) {
+                toTopBtn.classList.toggle('visible', window.scrollY > 300);
+            } else {
+                toTopBtn.classList.remove('visible');
+            }
+            });
+
+            if (toTopBtn) {
+            toTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            }
+
+
     const hero = document.getElementById('hero');
     const nameEl = document.querySelector('.name-container');
+    const bodyEl = document.querySelector('.mobile-links');
 
-    if (!hero || !nameEl) return;
+
+    if (!hero || !nameEl || !bodyEl) return;
 
     // Ensure correct state immediately on load
     const setState = () => {
         const rect = hero.getBoundingClientRect();
         const inView = rect.top < window.innerHeight && rect.bottom > 0;
         nameEl.classList.toggle('invert', inView);
+        bodyEl.classList.toggle('invert', inView);
+
     };
 
     // Observe hero visibility (robust + low-cost)
     const io = new IntersectionObserver(([entry]) => {
         nameEl.classList.toggle('invert', entry.isIntersecting);
+        bodyEl.classList.toggle('invert', entry.isIntersecting);
     }, { threshold: 0.1, rootMargin: "0px 0px -1px 0px" });
     io.observe(hero);
 
