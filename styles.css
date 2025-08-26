@@ -761,7 +761,7 @@ header nav {
   /* name: top-left on phone; show only while hero is visible */
   .name-container {
     position: fixed;
-    top: calc(10px + env(safe-area-inset-top, 0px));
+    margin-top: 130%;
     left: calc(12px + env(safe-area-inset-left, 0px));
     right: auto;
     text-align: left;
@@ -791,7 +791,7 @@ header nav {
   .mobile-links {
     display: block;
     position: fixed;
-    margin-top: 120%;
+    margin-top: 150%;
     margin-left: 6%;
     z-index: 1100;
     line-height: 0.8;
