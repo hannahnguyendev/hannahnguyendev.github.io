@@ -858,3 +858,8 @@ header nav {
   background: #0c0507;
 }
 */
+
+.container > h1 {
+  font-size: 3rem !important;
+  margin-top: 20%;
+}
