@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hannah Nguyen | Resume</title>
+    <link rel="icon" type="image/x-icon" href="/indexmedia/hannahlogo94.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050409;
+            overflow-y: auto;
+            margin: 0;
+            font-family: 'Monaco', monospace;
+        }
+        header nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        header nav a {
+            font-size: 1rem;
+            text-decoration: none;
+            color: #8ab7f1;
+        }
+
+        header nav a:hover {
+            color: #d1f5ff;
+        }
+
+        #project-container {
+            max-width: 800px;
+            margin: 6rem auto 2rem auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        #project-container h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffffff; /* green title */
+        }
+
+        #project-container p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #d1f5ff;
+            margin-bottom: 1rem;
+        }
+
+        video {
+            width: 60%;
+            max-width: 700px;
+            height: auto;
+            display: block;
+            margin: 2rem auto;
+        }
+
+        .caption {
+            text-align: center;
+            color: #8ab7f1;
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed Header -->
+    <header>
+        <nav>
+            <a href="index.html">Projects</a>
+            <a href="about.html">Personal</a>
+            <a href="#resume-container">Resume</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Project Title + Description -->
+    <div id="project-container">
+        <h1>ES96: The Bionausaureses FUEL CELL</h1>
+        <h2>Biodegradable Gas Generation System</h2> 
+        <p>
+            This project explores a sustainable alternative to traditional robotic power systems by developing a 
+            fully biodegradable gas generation mechanism. Instead of relying on batteries or electronics, the system 
+            uses a chemical reaction between yeast and hydrogen peroxide to produce oxygen gas for propulsion.
+        </p>
+        <p>
+            Designed for environmental monitoring applications, this system reduces long-term pollution from abandoned 
+            underwater robots. A controlled dispensing mechanism releases yeast capsules into hydrogen peroxide, enabling 
+            sustained gas generation and pressure buildup. The result is a lightweight, non-toxic, and environmentally 
+            friendly propulsion method for biodegradable robotic platforms.
+        </p>
+    </div>
+
+    <!-- Video -->
+    <video controls>
+        <source src="indexmedia/ES96 Product movie DRAFT.mp4" type="video/mp4">
+    </video>
+
+</body>
+</html>
